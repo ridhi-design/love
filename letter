@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You</title>
+
+<!-- Google cursive font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #fde2ea, #fff5f8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+}
+
+/* PASSWORD SCREEN */
+.lock {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  text-align: center;
+  width: 320px;
+}
+
+.lock h2 {
+  color: #b1124a;
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+}
+
+input {
+  margin-top: 15px;
+  padding: 10px;
+  width: 80%;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+button {
+  margin-top: 15px;
+  background: #b1124a;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* LETTER */
+.letter {
+  display: none;
+  max-width: 420px;
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+}
+
+.letter h1 {
+  font-family: 'Great Vibes', cursive;
+  color: #b1124a;
+  font-size: 42px;
+  text-align: center;
+}
+
+#text {
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #4a2a2a;
+  white-space: pre-line;
+}
+
+.sign {
+  margin-top: 30px;
+  text-align: right;
+  font-style: italic;
+  color: #b1124a;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<div class="lock" id="lock">
+  <h2>Only You ❤️</h2>
+  <p>Enter the password</p>
+  <input type="password" id="pass" placeholder="hint: i said yes">
+  <br>
+  <button onclick="unlock()">Open</button>
+</div>
+
+<!-- LETTER -->
+<div class="letter" id="letter">
+  <h1>Ayush,</h1>
+  <div id="text"></div>
+  <div class="sign">— Senorita❤️</div>
+</div>
+
+<script>
+const correctPassword = "22052025"; // 🔐 change if you want
+
+function unlock() {
+  const input = document.getElementById("pass").value;
+  if (input === correctPassword) {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+    typeText();
+  } else {
+    alert("Not for the world. Only for you.");
+  }
+}
+
+/* TYPING ANIMATION */
+const message = `I don’t know when it happened,
+or how.
+
+Somewhere between ordinary conversations
+and quiet pauses,
+you became my home.
+
+Not the loud kind of love —
+but the one that feels safe.
+The one that stays.
+The one that understands silence.
+
+With you,
+even uncertainty feels less scary,
+and even chaos feels familiar.
+
+If forever ever feels too big,
+then just know this —
+in every version of tomorrow,
+I choose you.
+
+Softly.
+Purely.
+Constantly.`;
+
+let i = 0;
+function typeText() {
+  if (i < message.length) {
+    document.getElementById("text").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeText, 40);
+  }
+}
+</script>
+
+</body>
+</html>
